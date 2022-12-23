@@ -2,7 +2,7 @@ package Programmers;
 
 import java.util.*;
 
-public class KAKAO_BLIND_RECRUITMENT_2018_1Â÷Ä³½Ã {
+public class KAKAO_BLIND_RECRUITMENT_2018_1Ã‚Ã·Ã„Â³Â½Ãƒ {
 
 	public static void main(String[] args){
 		int cacheSize = 3;
