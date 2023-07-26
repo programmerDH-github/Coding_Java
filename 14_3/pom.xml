@@ -40,36 +40,66 @@
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>2.0.3</version>
 		</dependency>
-		
+
 		<!-- Mybatis -->
 	  	<dependency>
 	  		<groupId>org.mybatis.spring.boot</groupId>
 	  		<artifactId>mybatis-spring-boot-starter</artifactId>
 	  		<version>3.0.0</version>
 	  	</dependency>
-  	
+
 	  	<!-- MySQL Connector -->
 	  	<dependency>
 			  <groupId>mysql</groupId>
 			  <artifactId>mysql-connector-java</artifactId>
-			  <version>8.0.32</version>			  
+			  <version>8.0.32</version>
 		</dependency>
 		<dependency>
 			  <groupId>org.springframework.boot</groupId>
 			  <artifactId>spring-boot-starter-data-jdbc</artifactId>
-			  <version>3.0.5</version>	  
+			  <version>3.0.5</version>
 		</dependency>
-		
-		<!-- Junit 5-->
-  		<dependency>
-			  <groupId>org.junit.jupiter</groupId>
-			  <artifactId>junit-jupiter-api</artifactId>
-			  <version>5.8.1</version>
-  		</dependency>
-  			<dependency><groupId>org.springframework.boot</groupId>
+
+  		<dependency><groupId>org.springframework.boot</groupId>
   			<artifactId>spring-boot-starter-test</artifactId>
   			<version>3.0.5</version>
   		</dependency>
+
+		<!-- JWT -->
+		<dependency>
+  			<groupId>io.jsonwebtoken</groupId>
+  			<artifactId>jjwt</artifactId>
+  			<version>0.9.0</version>
+		</dependency>
+		
+		<!-- Spring Security 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency> -->
+		
+		<!-- SMTP -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		
+		<!-- itextpdf -->
+		<dependency>
+        	<groupId>com.itextpdf</groupId>
+        	<artifactId>itextpdf</artifactId>
+        	<version>5.5.13.3</version>
+		</dependency>
+   		
+   		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.11.0</version>
+		</dependency>
+
+		
+
 	</dependencies>
 
 	<build>
@@ -86,8 +116,15 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+			      <groupId>org.apache.maven.plugins</groupId>
+			      <artifactId>maven-compiler-plugin</artifactId>
+			      <version>3.8.1</version>
+			      <configuration>
+				<source>17</source>  // 사용하는 Java 버전에 맞게 변경합니다.
+				<target>17</target>  // 사용하는 Java 버전에 맞게 변경합니다.
+			      </configuration>
+			</plugin>
 		</plugins>
-		
 	</build>
-
 </project>

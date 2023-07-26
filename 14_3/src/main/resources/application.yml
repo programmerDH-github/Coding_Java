@@ -20,6 +20,18 @@ springdoc:
     
     
 spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: goming.team@gmail.com
+    password: srvxdrufxzvgobcb
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
   mvc:
     pathmatch:
       matching-strategy: ant-path-matcher 
@@ -31,20 +43,14 @@ spring:
       suffix: .jsp   
   # 존재하지 않는 api 요청 처리
     throw-exception-if-no-handler-found: true
-#  datasource: 
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://106.10.44.49:3306/bside?characterEncoding=UTF-8&serverTimezone=UTC
-#    username: bside
-#    password: bside
-  datasource:
-    url: jdbc:mysql://localhost:3306/user?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
-    username: root
-    password: sounwoo12!
-    driver-class-name: com.mysql.cj.jdbc.Driver
+  datasource: 
+    url: jdbc:mysql://49.50.161.32:3306/bside?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
+    username: bside
+    password: bside
+    driver-class-name: com.mysql.cj.jdbc.Driver   
 
 mybatis: 
-  mapper-locations: classpath:sqlmap/mappers/**/*Mapper.xml
-  
+  mapper-locations: classpath:sqlmap/mapper/**/*.xml
   
   jpa:
     database: mysql
