@@ -12,5 +12,6 @@ public class Baek_Joon_3052 {
         }
 
         System.out.println(arraylist.size());
+        sc.close();
     }
 }
