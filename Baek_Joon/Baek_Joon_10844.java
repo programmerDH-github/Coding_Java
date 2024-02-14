@@ -32,6 +32,6 @@ public class Baek_Joon_10844 {
             answer += dp[N][i];
         }
 
-        System.out.println(answer);
+        System.out.println(answer%mod);
     }
 }
