@@ -11,14 +11,24 @@ public class Baek_Joon_17412 {
         String word = "";
         for(int i = 0; i < sentence.length(); i++) {
             if(sentence.charAt(i) == '>') {
-                word += ">";
+                word += sentence.charAt(i);
+
                 for(int j = 0; j < word.length(); j++) {
                     sb.append(word.charAt(j));
                 }
+
                 word = "";
+                
+            }
+            else if(sentence.charAt(i) == '<') {    
+                if(word.length() != 0) {
+                    for(int j = 0; j < word.length(); j++) {
+                        sb.append(word.charAt(word.length()-1-j));
+                    }
+                }
+                word = "<";
             }
             else if(sentence.charAt(i) == ' ') {
-                System.out.println("i : "+i);
                 if(word.charAt(0) != '<') {
                     for(int j = 0; j < word.length(); j++) {
                         sb.append(word.charAt(word.length()-1-j));
@@ -26,15 +36,18 @@ public class Baek_Joon_17412 {
                     sb.append(" ");
                     word = "";
                 }
+                else {
+                    word += sentence.charAt(i);
+                }
             }
             else {
                 word += sentence.charAt(i);
             }
+        }
 
-            if(word.length() != 0 && i == sentence.length()-1) {
-                for(int j = 0; j < word.length(); j++) {
-                    sb.append(word.charAt(word.length()-1-j));
-                }
+        if(word.length() != 0) {
+            for(int i = 0; i < word.length(); i++) {
+                sb.append(word.charAt(word.length()-1-i));
             }
         }
 
