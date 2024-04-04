@@ -10,11 +10,11 @@
 	<select id="getUserByEmail" resultType="com.bside.BSIDE.user.domain.UserDto">
 		SELECT usr_nm as usrNm, eml, usr_nm as usrNm, password, sns_cls_cd as snsClsCd, sns_token as snsToken, gndr_cls_cd as gndrClsCd,
 		brdt, join_dtm as joinDtm, last_lgn_dtm as lastLgnDtm, update_dtm as updateDtm, agreement
-		FROM bside.user WHERE eml = #{email}
+		FROM BSIDE.user WHERE eml = #{email}
 	</select>
 	
 	<update id="updateUser" parameterType="com.bside.BSIDE.user.domain.UserDto">
-		UPDATE bside.user 
+		UPDATE BSIDE.user 
 		SET
 			password = #{password},
 			agreement = #{agreement},
@@ -25,18 +25,18 @@
 	</update>
 	
 	<delete id="deleteUser" parameterType = "String">
-		DELETE FROM bside.user 
+		DELETE FROM BSIDE.user 
 		WHERE eml = #{email}
 	</delete>
 	
 	<select id="getUserByEmailPw" resultType="com.bside.BSIDE.user.domain.UserDto">
     	SELECT usr_nm as usrNm, eml, usr_nm as usrNm, password, sns_cls_cd as snsClsCd, sns_token as snsToken, gndr_cls_cd as gndrClsCd,
 		brdt, join_dtm as joinDtm, last_lgn_dtm as lastLgnDtm, update_dtm as updateDtm, agreement
-    	FROM bside.user WHERE eml = #{email} AND password = #{password}
+    	FROM BSIDE.user WHERE eml = #{email} AND password = #{password}
 	</select>
 	
 	<update id="saveTemporaryPassword" parameterType="com.bside.BSIDE.user.domain.UserDto">
-		UPDATE bside.user 
+		UPDATE BSIDE.user 
 		SET
 			password=#{password},
 			update_dtm=NOW()
@@ -46,18 +46,18 @@
 	
 	<select id="getUser" resultType="com.bside.BSIDE.user.domain.UserDto">
 		SELECT eml
-		FROM bside.user 
+		FROM BSIDE.user 
 		WHERE eml LIKE '%@%'
 	</select>
 
 	<select id="getUserByUsrNm" resultType="string">
 		SELECT usr_nm as usrNm
-		FROM bside.user WHERE usr_nm = #{usrNm}
+		FROM BSIDE.user WHERE usr_nm = #{usrNm}
 	</select>
 
 	<select id="getPasswordConfirm" resultType="string">
 		SELECT password
-		FROM bside.user
+		FROM BSIDE.user
 		WHERE eml = #{email}
 	</select>
 

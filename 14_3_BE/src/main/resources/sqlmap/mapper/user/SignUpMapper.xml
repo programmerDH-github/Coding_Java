@@ -10,7 +10,7 @@
 
     <insert id="signUser" parameterType="com.bside.BSIDE.user.domain.UserDto">
         INSERT INTO
-            bside.user(
+            BSIDE.user(
             eml,
             usr_nm,
             password,
@@ -32,7 +32,7 @@
 
     <update id="updatePassword" parameterType="com.bside.BSIDE.user.domain.UserDto">
         UPDATE
-            bside.user
+            BSIDE.user
         SET
             password= #{tempPassword}
         WHERE
