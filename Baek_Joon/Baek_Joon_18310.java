@@ -16,15 +16,9 @@ public class Baek_Joon_18310 {
 
         Arrays.sort(antenna);
 
-        // int mid = N/2;
-        // System.out.println("mid : " + mid+", value : "+antenna[mid]);
-        // int sum = 0;
-        // for(int i = 0; i < N; i++) {
-        //     System.out.println("Math.abs(antenna[i] - antenna[mid]) : "+Math.abs(antenna[i] - antenna[mid]));
-        //     sum += Math.abs(antenna[i] - antenna[mid]);
-        // }
-
-        System.out.println(antenna[N/2-1]);
+        if(N % 2 == 0) System.out.println(antenna[N/2-1]);
+        else System.out.println(antenna[N/2]);
+               
 
     }
 }
