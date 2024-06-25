@@ -14,58 +14,11 @@ public class Baek_Joon_10158 {
         int q = Integer.parseInt(p_q[1]);
 
         int t = Integer.parseInt(br.readLine());
-
-        int[] dp = {1,1,-1,-1};
-        int[] dq = {1,-1,-1,1};
-        int idx = 0;
-        int np = p;
-        int nq = q;
-        while(t > 0) {
-            t--;
-
-            if(np == w) {
-                if(nq == h) {
-                    idx = 2;
-                }
-                else if(nq == 0) {
-                    idx = 3;
-                }
-                else {
-                    idx = 3;
-                }
-            }
-            else if (np == 0) {
-                if(nq == h) {
-                    idx = 1;
-                }
-                else if(nq == 0) {
-                    idx = 0;
-                }
-                else {
-                    idx = 0;
-                }
-            }
-            else {
-                if(nq == h) {
-                    if(idx == 3) idx  = 2;
-                    else idx = 1;
-                }
-                else if(nq == 0) {
-                    if(idx == 2) idx  = 3;
-                    else idx = 0;
-                }
-                
-            }
-
-            np = dp[idx] + np;
-            nq = dq[idx] + nq;
-
-            
-            
-        }
-
-        System.out.println(np+" "+nq);
         
+        int x = w - Math.abs(w - (p + t) % (w * 2));
+        int y = h - Math.abs(h - (q + t) % (h * 2));
+
+        System.out.println(x+" "+y);
 
     }
 }
