@@ -30,18 +30,18 @@ public class Baek_Joon_21921 {
             arraylist.add(visit);
             if(max < visit) max = visit;
         }
-
+        
         Collections.sort(arraylist, Collections.reverseOrder());
 
         if(arraylist.get(0) == 0) System.out.println("SAD");
         else {
-            System.out.println(arraylist.get(0));
-            int count = 1;
-            for(int i = 1; i < arraylist.size(); i++) {
-                if(arraylist.get(i) == arraylist.get(i-1)) {
+            int answer = arraylist.get(0);
+            System.out.println(answer);
+            int count = 0;
+            for(int i = 0; i < arraylist.size(); i++) {
+                if(answer == arraylist.get(i)) {
                     count++;
                 }
-                else break;
             }    
             System.out.println(count);
         }
