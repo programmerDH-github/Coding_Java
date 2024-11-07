@@ -1,8 +1,8 @@
 import java.io.*;
 
 public class Baek_Joon_14503 {
-    static int[] dx = {-1,0,1,0};   //북동남서  0123
-    static int[] dy = {0,1,0,-1};   //서남동북  3210
+    static int[] dx = {-1,0,1,0}; // 반시계
+    static int[] dy = {0,1,0,-1};
     static int[][] maps;
     static int N,M,r,c,d;
     static int answer = 1;
@@ -33,29 +33,27 @@ public class Baek_Joon_14503 {
 
     }
 
-    public static void dfs(int x, int y, int direct) {
-        System.out.println(x+", "+y);
+    static void dfs(int x, int y, int direct) {
         maps[x][y] = -1;
 
         for(int i = 0; i < 4; i++) {
-            direct = (direct + 3)%4;
-            int nx = x + dx[direct];
+            direct = (direct+3)%4;
+            int nx = x + dx[direct]; 
             int ny = y + dy[direct];
-
-            if(nx >= 0 && nx < N && ny >= 0 && ny < M && maps[nx][ny] == 0) {
+            
+            if(nx < N && nx >= 0 && ny < M && ny >= 0 && maps[nx][ny] == 0) {
                 answer++;
-                dfs(nx, ny, direct);
-
+                dfs(nx,ny,direct);
                 return;
-            } 
+            }
         }
 
-        int back = (direct + 2)%4;
-        int bx = x + dx[back];
-        int by = y + dy[back];
-
-        if(bx >= 0 && bx < N && by >= 0 && by < M && maps[bx][by] != 1) {
-            dfs(bx,by,direct);
+        int nd = (direct+2)%4;
+        int nx = x + dx[nd];
+        int ny = y + dy[nd];
+        
+        if(nx < N && nx >= 0 && ny < M && ny >= 0 && maps[nx][ny] != 1) {
+            dfs(nx,ny,direct);
         }
 
     }
