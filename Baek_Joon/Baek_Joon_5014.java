@@ -16,13 +16,16 @@ public class Baek_Joon_5014 {
         U = Integer.parseInt(F_S_G_U_D[3]);
         D = Integer.parseInt(F_S_G_U_D[4]);
 
-        System.out.println(bfs());        
+        if(S == G) System.out.println(0);
+        else bfs();        
 
     }
 
-    static int bfs() {
+    static void bfs() {
         Queue<Integer> queue = new LinkedList<>();
         queue.offer(S);
+
+        floor[S] = 1;
 
         while(!queue.isEmpty()) {
             int current = queue.poll();
@@ -38,20 +41,24 @@ public class Baek_Joon_5014 {
                     next = current - D;
                 }
                 
-
-
-                if(next < 0 || next > 1000000) continue;
                 
-                if(floor[next] == 0 || floor[next] >= floor[current]+1) {
+
+                if(next < 1 || next > F) continue;
+                
+                if(next == G) {
+                    System.out.println(floor[current]);
+                    return;
+                }
+
+                if(floor[next] == 0 || floor[next] > floor[current]+1) {
                     floor[next] = floor[current]+1;
                     queue.offer(next);
                 }
 
             }
-
         }
 
-        return floor[G];
+        System.out.println("use the stairs");
 
     }
     
