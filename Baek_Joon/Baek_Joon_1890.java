@@ -13,43 +13,28 @@ public class Baek_Joon_1890 {
         numbers = new int[N][N];
         dp = new int[N][N];
         for(int i = 0; i < N; i++) {
-            for(int j = 0; j < N; j++) {
-                if(i == 0 && j == 0) {
-                    dp[i][j] = 0;
-                }
-                else dp[i][j] = -1;
-            }
-        }
-
-        for(int i = 0; i < N; i++) {
             String[] input = br.readLine().split(" ");
             for(int j = 0; j < N; j++) {
                 numbers[i][j] = Integer.parseInt(input[j]);
             }
         }
 
+        dp[0][0] = -1;
+
         for(int i = 0; i < N; i++) {
             for(int j = 0; j < N; j++) {
-                if(dp[i][j] == -1) continue;
+                if(i == N-1 && j == N-1) break;
 
                 int ni = i+numbers[i][j];
                 int nj = j+numbers[i][j];
 
-                if(ni < N && (dp[ni][j] > dp[i][j]+1 || dp[ni][j] == -1)) dp[ni][j] = dp[i][j]+1;
-                if(nj < N && (dp[i][nj] > dp[i][j]+1 || dp[i][nj] == -1)) dp[j][nj] = dp[i][j]+1;
+                if(ni < N) dp[ni][j] = dp[i][j]+1;
+                if(nj < N) dp[i][nj] = dp[i][j]+1;
                 
             }
         }
-
-        for(int i = 0; i < N; i++) {
-            for(int j = 0; j < N; j++) {
-                System.out.print(dp[i][j]+" ");
-            }
-            System.out.println();
-        }
-
         
-        System.out.println(dp[N-1][N-1]);
+        System.out.println(dp[N-1][N-1]-1);
 
     }
 
