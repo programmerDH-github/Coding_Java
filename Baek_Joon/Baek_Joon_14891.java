@@ -36,28 +36,28 @@ public class Baek_Joon_14891 {
 
         int answer = 0;
         if(wheel[0][0] == 1) answer += 1;
-        else if(wheel[1][0] == 1) answer += 2;
-        else if(wheel[2][0] == 1) answer += 4;
-        else if(wheel[3][0] == 1) answer += 8;
+        if(wheel[1][0] == 1) answer += 2;
+        if(wheel[2][0] == 1) answer += 4;
+        if(wheel[3][0] == 1) answer += 8;
 
         System.out.println(answer);
 
     }
 
     static void turn_check(int number) {
-        for(int i = number+1; i < 4; i++) {
-            if(wheel[i][6] != wheel[i-1][2]) {
-                turn_check[i] = -turn_check[i-1];
-            } 
-            else break;
-        }
-
         for(int i = number-1; i >= 0; i--) {
             if(wheel[i][2] != wheel[i+1][6]) {
                 turn_check[i] = -turn_check[i+1];
             }
             else break;
         }
+
+        for(int i = number+1; i < 4; i++) {
+            if(wheel[i][6] != wheel[i-1][2]) {
+                turn_check[i] = -turn_check[i-1];
+            } 
+            else break;
+        }      
 
     }
 
