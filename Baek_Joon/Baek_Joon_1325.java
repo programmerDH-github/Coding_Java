@@ -16,7 +16,7 @@ public class Baek_Joon_1325 {
         M = Integer.parseInt(N_M[1]);
 
         trust = new ArrayList[N+1];
-        for(int i = 1; i < N+1; i++) trust[i] = new ArrayList<Integer>();
+        for(int i = 0; i < N+1; i++) trust[i] = new ArrayList<Integer>();
         for(int i = 0; i < M; i++) {
             String[] input = br.readLine().split(" ");
             int A = Integer.parseInt(input[0]);
@@ -27,7 +27,7 @@ public class Baek_Joon_1325 {
         count = new int[N+1];
         for(int i = 1; i < N+1; i++) {
             visited = new boolean[N+1];
-            dfs(i);
+            dfs(i);        
         }
 
         int max = 0;
@@ -47,10 +47,9 @@ public class Baek_Joon_1325 {
         visited[start] = true;
         
         for(int i : trust[start]) {
-            if(!visited[i]) {
-                count[i]++;
-                dfs(i);
-            }
+            if(visited[i]) continue;
+            count[i]++;
+            dfs(i);
         }
 
     }
