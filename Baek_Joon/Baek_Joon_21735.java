@@ -26,7 +26,7 @@ public class Baek_Joon_21735 {
     }
 
     static void dfs(int size, int location, int time) {
-        if (time == M || location > N) {
+        if (time == M || location >= N) {
             answer = Math.max(answer,size);
             return;
         }
