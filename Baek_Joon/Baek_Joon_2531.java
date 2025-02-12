@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
 
 public class Baek_Joon_2531 {
     public static void main(String[] args) throws IOException {
@@ -17,41 +18,27 @@ public class Baek_Joon_2531 {
             sushi[i] = Integer.parseInt(br.readLine());
         }
 
-        int[] eat = new int[d+1];
-
+        int i = 0;
+        int j = 0;
         int count = 0;
-        for(int i = 0; i < k; i++) {
-            if(eat[sushi[i]] == 0) {
-                count++;
-            }
-            eat[sushi[i]]++;
-        }
+        int max = 0;
+        HashMap<Integer, Integer> map = new HashMap<>();
+        while(i < N) {
+            if(count == k) {
+                if(!map.containsKey(c)) max = Math.max(max,map.size()+1);
+                else max = Math.max(max,map.size());
 
-        int max = count;
+                map.remove(sushi[i]);
+                count = 0;
+                i++;
+                j = i;
+                continue;
+            }            
 
-        for(int i = 1; i < N; i++) {
-            
-            if(max <= count) {
-                if(eat[c] == 0) {
-                    max = count + 1;
-                }
-                else {
-                    max = count;
-                }
-            }
+            map.put(sushi[j%N], 1);
+            count++;
+            j++;
 
-            int end = (i+k-1)%N;
-
-            eat[sushi[i-1]]--;
-            if(eat[sushi[i-1]] == 0) {
-                count--;
-            }
-
-            if(eat[sushi[end]] == 0) {
-                count++;
-            }
-            eat[sushi[end]]++;
-            
 
         }
 
