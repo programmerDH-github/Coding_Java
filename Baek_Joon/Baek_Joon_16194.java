@@ -13,24 +13,16 @@ public class Baek_Joon_16194 {
         String[] input = br.readLine().split(" ");
         for(int i = 1; i <= N; i++) card[i] = Integer.parseInt(input[i-1]);
 
-        min = Integer.MAX_VALUE;
-        dfs(0,0);
-
-        System.out.println(min);
-
-    }
-
-    static void dfs(int count, int cost) {
-        if(N < count) return;
-        if(N == count) {
-            if(min > cost) min = cost;
-            return;
-        }
-
+        int[] dp = new int[N+1];
+        
         for(int i = 1; i <= N; i++) {
-            dfs(count+i, cost+card[i]);
+            dp[i] = card[i];
+            for(int j = 1; j <= i; j++) {
+                dp[i] = Math.min(dp[i], dp[i-j] + card[j]);
+            }
         }
 
-    }
+        System.out.println(dp[N]);
 
+    }
 }
