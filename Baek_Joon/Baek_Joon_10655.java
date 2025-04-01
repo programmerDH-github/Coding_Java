@@ -18,10 +18,21 @@ public class Baek_Joon_10655 {
 
         }
 
+        int max = 0;
+        int sum = 0;
         for(int i = 1; i < N; i++) {
-            System.out.println(Math.abs(point[i][0]-point[i-1][0]) + Math.abs(point[i][1]-point[i-1][1]));
-        }
+            sum += Math.abs(point[i-1][0]-point[i][0]) + Math.abs(point[i-1][1]-point[i][1]);
 
+            if(i == N-1) break;
+
+            int jump = Math.abs(point[i-1][0]-point[i+1][0]) + Math.abs(point[i-1][1]-point[i+1][1]);
+            int move = Math.abs(point[i-1][0]-point[i][0]) + Math.abs(point[i-1][1]-point[i][1]) + Math.abs(point[i][0]-point[i+1][0]) + Math.abs(point[i][1]-point[i+1][1]);
+
+            max = Math.max(max, move-jump);
+
+        }
+        
+        System.out.println(sum - max);
 
     }   
 }
