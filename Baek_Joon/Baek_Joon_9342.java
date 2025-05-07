@@ -72,6 +72,15 @@ public class Baek_Joon_9342 {
 
         }
 
+    /*
+        String regExPattern = "^[A-F]?A+F+C+[A-F]?$"; 
+        ^ : 정규표현식 시작
+        $ : 정규표현식 끝
+        [A-F] : A,B,C,D,E,F
+        ? : 0번 또는 1번
+        + : 그 전 문자가 1개 이상
+        
+    */
         System.out.println(sb);
 
     }
