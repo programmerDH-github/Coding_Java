@@ -7,6 +7,7 @@ public class Baek_Joon_9742 {
     static int target;
     static boolean[] checked;
     static String answer;
+    static char[] chars;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -17,9 +18,10 @@ public class Baek_Joon_9742 {
             input = line.split(" ");
             target = Integer.parseInt(input[1]);
             checked = new boolean[input[0].length()];
+            chars = new char[input[0].length()];
             answer = "";
 
-            backtracking("");
+            backtracking(0);
 
             if(answer.equals("")) answer = "No permutation";        
 
@@ -27,10 +29,12 @@ public class Baek_Joon_9742 {
         }
     }
 
-    static void backtracking(String str){
-        if(str.length() == input[0].length()) {
+    static void backtracking(int count){
+        if(target == 0) return;
+
+        if(count == input[0].length()) {
             target--;
-            if(target == 0) answer = str;
+            if(target == 0) answer = new String(chars);
             return;
         }
         
@@ -39,11 +43,14 @@ public class Baek_Joon_9742 {
         for(int i = 0; i < input[0].length(); i++) {
             if(!checked[i]) { 
                 checked[i] = true;
-                if(target == 0) return;
-                backtracking((str+input[0].charAt(i)));                
+                chars[count] = input[0].charAt(i);
+                backtracking(count+1);
                 checked[i] = false;
             }
         }
+
+        return;
+
     }
 
 }
