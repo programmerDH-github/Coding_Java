@@ -10,9 +10,27 @@ public class Baek_Joon_11561 {
 
         for(int i = 0; i < T; i++) {
             long N = Long.parseLong(br.readLine());
-            long[] dp = new long[N+1];
-            sb.append(dp[N]).append(i);
+
+            long count = 0;
+            long left = 0;
+            long right = 1_000_000_000;
+            while(left <= right) {
+                long mid = (left+right)/2;
+                long sum = (mid*(mid+1))/2;
+
+                if(sum <= N) {
+                    if(count < mid) count = mid;
+                    left = mid+1;
+                }
+                else right = mid-1;
+
+            }
+
+            sb.append(count).append("\n");
+
         }
+
+        System.out.println(sb);
 
     }
 }
