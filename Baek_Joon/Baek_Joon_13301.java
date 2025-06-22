@@ -9,6 +9,15 @@ public class Baek_Joon_13301 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
 
+        if(N == 0) {
+            System.out.println(4);
+            return;
+        }
+        if(N == 1) {
+            System.out.println(6);
+            return;
+        }
+
         length = new long[N+1];
         length[0] = 1;
         length[1] = 1;
