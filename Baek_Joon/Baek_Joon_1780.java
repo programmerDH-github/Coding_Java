@@ -3,29 +3,41 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Baek_Joon_1780 {
-    static int min = Integer.MAX_VALUE;
+    static int[] count;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String[] A_B = br.readLine().split(" ");
-        int A = Integer.parseInt(A_B[0]);
-        int B = Integer.parseInt(A_B[1]);
+        int N = Integer.parseInt(br.readLine());
+        count = new int[3];
 
-        back(A,B,1);
-        System.out.println(min == Integer.MAX_VALUE ? -1 : min);
+        int[][] arr = new int[N][N];
+        for(int i = 0; i < N; i++) {
+            String[] input = br.readLine().split(" ");
+            for(int j = 0; j < N; j++) {
+                arr[i][j] = Integer.parseInt(input[j]);
+            }
+        }
 
+
+
+
+        for(int c : count) System.out.println(c);
+        
     }
 
-    static void back(long n, int target, int count) {
-        if(target == n) {
-            min = Math.min(min, count);
+    static void back(int n, int[][] arr, int first, int second, int target) {
+        if(n == 1) {
+            count[target+1] += 1;
             return;
         }
 
-        if(target < n) return;
-        
-        String num = Long.toString(n) + Integer.toString(1);
-        back(n*2, target, count+1);
-        back(Long.parseLong(num), target, count+1);
+        int value = arr[first][second];
+        for(int i = first; i < n; i++) {
+            for(int j = second; j < n; j++) {
+                if(value != arr[i][j]) {
+                    back(n/3, arr, 0,0,value);
+                }                
+            }
+        }
 
     }
 
