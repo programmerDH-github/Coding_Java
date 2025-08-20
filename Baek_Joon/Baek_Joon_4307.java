@@ -6,6 +6,7 @@ import java.util.Arrays;
 public class Baek_Joon_4307 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
         int T = Integer.parseInt(br.readLine());
 
         for(int i = 0; i < T; i++) {
@@ -21,12 +22,23 @@ public class Baek_Joon_4307 {
 
             Arrays.sort(ant);
 
-            System.out.println();
-            for(int j = 0; j < n; j++) System.out.print(ant[j]+" ");
-            
+            int minTime = 0;
+            int maxTime = 0;
 
+            for(int j = 0; j < n; j++) {
+                int minTmp = Math.min(ant[j], l-ant[j]);
+                int maxTmp = Math.max(ant[j], l-ant[j]);
+
+                minTime = Math.max(minTmp, minTime);
+                maxTime = Math.max(maxTmp, maxTime);
+
+            }
+
+            sb.append(minTime+" "+maxTime).append("\n");
 
         }
+
+        System.out.println(sb);
 
     }
 }
