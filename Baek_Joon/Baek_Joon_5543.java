@@ -13,7 +13,10 @@ public class Baek_Joon_5543 {
         for(int i = 0; i < 2; i++) drink[i] = Integer.parseInt(br.readLine());
 
         Arrays.sort(hamburger);
+        Arrays.sort(drink);
+        int answer = hamburger[0] + drink[0] - 50;
         
+        System.out.println(answer);
 
     }
 }
