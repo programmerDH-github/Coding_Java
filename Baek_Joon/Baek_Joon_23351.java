@@ -15,7 +15,7 @@ public class Baek_Joon_23351 {
         }
 
         int water = 0;        
-        int day = 1;
+        int day = 0;
         while(pq.peek()-water > 0) {
             
             int watering = 0;
@@ -27,8 +27,8 @@ public class Baek_Joon_23351 {
             water++;
             day++;
         }
-        
-        System.out.println(day-1);
+
+        System.out.println(day);
 
     }
 }
